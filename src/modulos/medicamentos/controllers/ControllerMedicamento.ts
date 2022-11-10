@@ -1,25 +1,21 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Request, Response } from 'express';
-import { RepositorioVeterinario } from '../models/repositorio/repositorioVeterinario';
+import { RepositorioMedicamento } from "../models/repositorio/repositorioMedicamento";
 
 
-class VeterinarioController {
+class MedicamentoController {
 
     async buscar(request: Request, response: Response): Promise<unknown> {
-        const rep = new RepositorioVeterinario()
+        const rep = new RepositorioMedicamento()
         const all = await rep.listar()
         return response.status(200).json(all);
     }
 
     async encontrar(request: Request, response: Response): Promise<unknown> {
         const { id } = request.params;
-        const rep = new RepositorioVeterinario()
+        const rep = await new RepositorioMedicamento()
         const all = await rep.encontrar(Number(id))
         return response.status(200).json(all);
     }
-
-
 }
 
-export { VeterinarioController };
-
+export { MedicamentoController }

@@ -1,4 +1,4 @@
-import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 /*
 @Entity
@@ -14,13 +14,13 @@ class Veterinario {
 
     @Column()
     nome: string;
-    
+
     @Column()
     crv: string;
-    
-    @Column({name:"cpf"})
+
+    @Column({ name: "cpf" })
     CPF: string;
-    
+
 }
 
 export { Veterinario };
